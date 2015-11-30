@@ -1,0 +1,118 @@
+# Note: decimal fields described as real, for performance reason
+{
+  update_header: [ # these lines will be inserted at the beginning of INSERT DATA query
+      "define sql:big-data-const 0",
+      "prefix xsd:<http://www.w3.org/2001/XMLSchema#>",
+      "prefix rdfh: <http://lod2.eu/schemas/rdfh#>",
+      "prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>"
+          ],
+  header: [ # these lines will be inserted at the beginning of each .ttl file
+      "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .",
+      "@prefix rdfh: <http://lod2.eu/schemas/rdfh#> .",
+      "@prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#> ."
+          ],
+  default_tag: rdfh, # tag for properties; a field 'name' will be referenced as 'rdfh:name'
+
+  tables:[
+    { name: lineorder,
+      tag: rdfh-inst,
+    fields:[
+    { name: lo_orderkey, type: int },
+    { name: lo_linenumber, type: int },
+    { name: lo_custkey, refto: customer },
+    { name: lo_partkey, refto: part },
+    { name: lo_suppkey, refto: supplier },
+    { name: lo_orderdate, refto: date },
+    { name: lo_orderpriority, type: str },
+    { name: lo_shippriority, type: int },
+    { name: lo_quantity, type: int },
+    { name: lo_extendedprice, type: double },
+    { name: lo_ordtotalprice, type: double },
+    { name: lo_discount, type: double },
+    { name: lo_revenue, type: int },
+    { name: lo_supplycost, type: int },
+    { name: lo_tax, type: double },
+    { name: lo_commitdate, type: int },
+    { name: lo_shipmode, type: str },
+       ],
+     keys:[
+    lo_orderkey,
+    lo_linenumber
+     ]
+    },
+    { name: date,
+      tag: rdfh-inst,
+    fields:[
+    { name: d_datekey, type: int },
+    { name: d_date, type: str},
+    { name: d_dayofweek, type: str },
+    { name: d_month, type: str },
+    { name: d_year, type: int },
+    { name: d_yearmonthnum, type: int },
+    { name: d_yearmonth, type: str },
+    { name: d_daynuminweek, type: int },
+    { name: d_daynuminmonth, type: int },
+    { name: d_daynuminyear, type: int },
+    { name: d_monthnuminyear, type: int },
+    { name: d_weeknuminyear, type: int },
+    { name: d_sellingseason, type: str },
+    { name: d_lastdayinweekfl, type: str },
+    { name: d_lastdayinmonthfl, type: str },
+    { name: d_holidayfl, type: str },
+    { name: d_weekdayfl, type: str },
+       ],
+     keys:[
+    d_datekey
+     ]
+    },
+       { name: customer, # both name of .tbl file and object of 'a' property
+      tag: rdfh-inst, # tag for object and subject
+    fields:[  # describe fields of the csv file
+          # first field in .tbl file become rdfh:c_custkey etc.
+    { name: c_custkey, type: int},
+    { name: c_name, type: str },
+    { name: c_address, type: str },
+    { name: c_city, type: str },
+    { name: c_nation, type: str },
+    { name: c_region, type: str },
+        { name: c_phone, type: str },
+    { name: c_mktsegment, type: str },
+       ],
+     keys:[ # which fields are keys and so participate in creating subject name
+    c_custkey
+     ]
+    },
+        { name: part,
+      tag: rdfh-inst,
+    fields:[
+    {name: p_partkey, type: int },
+    { name: p_name, type: str },
+    { name: p_mfgr, type: str },
+    { name: p_category, type: str },
+    { name: p_brand1, type: str },
+    { name: p_color, type: str },
+    { name: p_type, type: str },
+    { name: p_size, type: int },
+    { name: p_container, type: str },
+       ],
+     keys:[
+    p_partkey,
+     ]
+    },
+        { name: supplier,
+      tag: rdfh-inst,
+    fields:[
+    { name: s_suppkey, type: int },
+    { name: s_name, type: str },
+    { name: s_address, type: str },
+    { name: s_city, type: str },
+    { name: s_nation, type: str },
+    { name: s_region, type: str },
+        { name: s_phone, type: str },
+       ],
+     keys:[
+    s_suppkey,
+     ],
+    },
+   ],
+}
