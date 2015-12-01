@@ -1,0 +1,33 @@
+prefix rdfh: <http://lod2.eu/schemas/rdfh#>
+prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>
+prefix qb: <http://purl.org/linked-data/cube#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix skosclass: <http://ddialliance.org/ontologies/skosclass#>
+
+INSERT INTO GRAPH <http://lod2.eu/schemas/rdfh#ssb1_ttl_levels> {
+
+rdfh:lo_suppkeyRegionLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyRegion", bif:replace(str(?s_region), " ", "-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyRegion", bif:replace(str(?s_region), " ", "-")))` skos:inScheme rdfh:lo_suppkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyRegion", bif:replace(str(?s_region), " ", "-")))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyNation", bif:replace(str(?s_nation), " ", "-")))`.
+
+rdfh:lo_suppkeyNationLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyNation", bif:replace(str(?s_nation), " ", "-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyNation", bif:replace(str(?s_nation), " ", "-")))` skos:inScheme rdfh:lo_suppkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyNation", bif:replace(str(?s_nation), " ", "-")))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyCity", bif:replace(str(?s_city), " ", "-")))`.
+
+rdfh:lo_suppkeyCityLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyCity", bif:replace(str(?s_city), " ", "-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyCity", bif:replace(str(?s_city), " ", "-")))` skos:inScheme rdfh:lo_suppkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_suppkeyCity", bif:replace(str(?s_city), " ", "-")))` skos:narrower ?supp.
+
+rdfh:lo_suppkeySupplierLevel skos:member ?supp.
+?supp skos:inScheme rdfh:lo_suppkeyCodeList.
+
+}
+from <http://lod2.eu/schemas/rdfh-inst#ssb1_ttl_qb>
+WHERE
+ {
+      ?supp a rdfh:supplier.
+      ?supp rdfh:s_region ?s_region.
+      ?supp rdfh:s_nation ?s_nation.
+      ?supp rdfh:s_city ?s_city.
+ }

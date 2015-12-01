@@ -1,0 +1,33 @@
+prefix rdfh: <http://lod2.eu/schemas/rdfh#>
+prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>
+prefix qb: <http://purl.org/linked-data/cube#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix skosclass: <http://ddialliance.org/ontologies/skosclass#>
+
+INSERT INTO GRAPH <http://lod2.eu/schemas/rdfh#ssb1_ttl_levels> {
+
+rdfh:lo_custkeyRegionLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyRegion", bif:replace(str(?c_region), " ", "-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyRegion", bif:replace(str(?c_region), " ", "-")))` skos:inScheme rdfh:lo_custkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyRegion", bif:replace(str(?c_region), " ", "-")))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyNation", bif:replace(str(?c_nation), " ", "-")))`.
+
+rdfh:lo_custkeyNationLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyNation", bif:replace(str(?c_nation), " ", "-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyNation", bif:replace(str(?c_nation), " ", "-")))` skos:inScheme rdfh:lo_custkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyNation", bif:replace(str(?c_nation), " ", "-")))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyCity", bif:replace(str(?c_city), " ", "-")))`.
+
+rdfh:lo_custkeyCityLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyCity", bif:replace(str(?c_city), " ", "-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyCity", bif:replace(str(?c_city), " ", "-")))` skos:inScheme rdfh:lo_custkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_custkeyCity", bif:replace(str(?c_city), " ", "-")))` skos:narrower ?supp.
+
+rdfh:lo_custkeyCustomerLevel skos:member ?supp.
+?supp skos:inScheme rdfh:lo_custkeyCodeList.
+
+}
+from <http://lod2.eu/schemas/rdfh-inst#ssb1_ttl_qb> from <http://lod2.eu/schemas/rdfh-inst#dimensionsssbS1>
+WHERE
+ {
+      ?supp a rdfh:customer.
+      ?supp rdfh:c_region ?c_region.
+      ?supp rdfh:c_nation ?c_nation.
+      ?supp rdfh:c_city ?c_city.
+ }

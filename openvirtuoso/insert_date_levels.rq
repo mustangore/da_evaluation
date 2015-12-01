@@ -1,0 +1,41 @@
+prefix rdfh: <http://lod2.eu/schemas/rdfh#>
+prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>
+prefix qb: <http://purl.org/linked-data/cube#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix skosclass: <http://ddialliance.org/ontologies/skosclass#>
+
+INSERT INTO GRAPH <http://lod2.eu/schemas/rdfh#ssb1_ttl_levels> {
+
+rdfh:lo_orderdateWeeknuminyearLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyear", bif:concat (str(?d_year), str(?d_weeknuminyear))))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyear", bif:concat (str(?d_year), str(?d_weeknuminyear))))` skos:inScheme rdfh:lo_orderdateWeeknuminyearCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyear", bif:concat (str(?d_year), str(?d_weeknuminyear))))` skos:narrower ?date.
+
+rdfh:lo_orderdateWeeknuminyearDateLevel skos:member ?date.
+?date skos:inScheme rdfh:lo_orderdateWeeknuminyearCodeList.
+
+rdfh:lo_orderdateYearLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYear", str(?d_year)))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYear", str(?d_year)))` skos:inScheme rdfh:lo_orderdateCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYear", str(?d_year)))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonth", str(?d_yearmonth)))` .
+
+rdfh:lo_orderdateYearMonthLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonth", str(?d_yearmonth)))` .
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonth", str(?d_yearmonth)))` skos:inScheme rdfh:lo_orderdateCodeList.
+ `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonth", str(?d_yearmonth)))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthNum", str(?d_yearmonthnum)))` .
+
+rdfh:lo_orderdateYearMonthNumLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthNum", str(?d_yearmonthnum)))` .
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthNum", str(?d_yearmonthnum)))` skos:inScheme rdfh:lo_orderdateCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthNum", str(?d_yearmonthnum)))` skos:narrower ?date .
+
+rdfh:lo_orderdateDateLevel skos:member ?date.
+?date skos:inScheme rdfh:lo_orderdateCodeList.
+
+}
+from <http://lod2.eu/schemas/rdfh-inst#ssb1_ttl_qb>
+WHERE
+ {
+      ?date a rdfh:date.
+    ?date rdfh:d_weeknuminyear ?d_weeknuminyear.
+      ?date rdfh:d_year ?d_year.
+      ?date rdfh:d_yearmonth ?d_yearmonth.
+      ?date rdfh:d_yearmonthnum ?d_yearmonthnum.
+ }

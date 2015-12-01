@@ -1,0 +1,33 @@
+prefix rdfh: <http://lod2.eu/schemas/rdfh#>
+prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>
+prefix qb: <http://purl.org/linked-data/cube#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix skosclass: <http://ddialliance.org/ontologies/skosclass#>
+
+INSERT INTO GRAPH <http://lod2.eu/schemas/rdfh#ssb1_ttl_levels> {
+
+rdfh:lo_partkeyMfgrLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyMfgr", bif:replace(str(?p_mfgr),"#","-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyMfgr", bif:replace(str(?p_mfgr),"#","-")))` skos:inScheme  rdfh:lo_partkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyMfgr", bif:replace(str(?p_mfgr),"#","-")))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyCategory", bif:replace(str(?p_category),"#","-")))`.
+
+rdfh:lo_partkeyCategoryLevel skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyCategory", bif:replace(str(?p_category),"#","-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyCategory", bif:replace(str(?p_category),"#","-")))` skos:inScheme  rdfh:lo_partkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyCategory", bif:replace(str(?p_category), "#", "-")))` skos:narrower `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyBrand1", bif:replace(str(?p_brand1),"#","-")))`.
+
+rdfh:lo_partkeyBrand1Level skos:member `iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyBrand1", bif:replace(str(?p_brand1),"#","-")))`.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyBrand1", bif:replace(str(?p_brand1),"#","-")))` skos:inScheme  rdfh:lo_partkeyCodeList.
+`iri (bif:concat ("http://lod2.eu/schemas/rdfh#lo_partkeyBrand1", bif:replace(str(?p_brand1),"#","-")))` skos:narrower ?part.
+
+rdfh:lo_partkeyPartLevel skos:member ?part.
+?part skos:inScheme rdfh:lo_partkeyCodeList.
+
+}
+from <http://lod2.eu/schemas/rdfh-inst#ssb1_ttl_qb>
+WHERE
+ {
+      ?part a rdfh:part.
+      ?part rdfh:p_mfgr ?p_mfgr.
+      ?part rdfh:p_category ?p_category.
+      ?part rdfh:p_brand1 ?p_brand1.
+ }
