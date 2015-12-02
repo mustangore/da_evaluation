@@ -1,3 +1,7 @@
+SPARQL
+
+DEFINE sql:log-enable 3
+
 prefix rdfh: <http://lod2.eu/schemas/rdfh#>
 prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>
 prefix qb: <http://purl.org/linked-data/cube#>
@@ -31,3 +35,4 @@ WHERE
       ?part rdfh:p_category ?p_category.
       ?part rdfh:p_brand1 ?p_brand1.
  }
+;
