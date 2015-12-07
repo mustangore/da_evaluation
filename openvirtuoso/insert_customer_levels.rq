@@ -25,7 +25,7 @@ rdfh:lo_custkeyCustomerLevel skos:member ?supp.
 ?supp skos:inScheme rdfh:lo_custkeyCodeList.
 
 }
-from <http://lod2.eu/schemas/rdfh-inst#ssb1_ttl_qb> from <http://lod2.eu/schemas/rdfh-inst#dimensionsssbS1>
+from <http://lod2.eu/schemas/rdfh-inst#ssb1_ttl_qb>
 WHERE
  {
       ?supp a rdfh:customer.
