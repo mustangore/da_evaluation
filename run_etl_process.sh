@@ -36,7 +36,7 @@ JVM_ARGS="$JVM_ARGS -Djava.io.tmpdir=\"$TMPDIR\""
 echo "###########################################"
 echo "Transform RDF Data into N-Triples Format..."
 echo "###########################################"
-
+ts=$(date +"%s");
 for entry in "$RDF_INPUT_PATH"/*
 do
   if [ -f "$entry" ];then
@@ -50,15 +50,16 @@ do
     fi
   fi
 done
-
+echo $(expr $(date +"%s") - $ts)
 echo "Transformation done..."
 echo ""
 
 echo "################################"
 echo "Generate ntriples.tar.gz File..."
 echo "################################"
+ts=$(date +"%s");
 time tar -czvf ntriples.tar.gz $RDF_OUTPUT_PATH/*.nt
-
+echo $(expr $(date +"%s") - $ts)
 echo "Done..."
 echo ""
 
@@ -67,8 +68,9 @@ echo "###############################"
 echo "Move ntriples.tar.gz to HDFS..."
 echo "###############################"
 
-time hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
-
+ts=$(date +"%s");
+hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
+echo $(expr $(date +"%s") - $ts)
 echo "Done..."
 echo ""
 
