@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Path to HDFS directory for uploading RDF N-Triples Data
-HDFS_PATH="TODO"
+HDFS_PATH="/user/sjelsch/my_test"
 
 # Generell stuff, get current path
 if [ -z "$ETL_PROCESS_HOME" ]
@@ -21,10 +21,10 @@ if [ -z "$ETL_PROCESS_HOME" ]
 fi
 
 # Path to input RDF data
-RDF_INPUT_PATH="$ETL_PROCESS_HOME"'/input'
+RDF_INPUT_PATH="$ETL_PROCESS_HOME"'/rdf-data'
 
 # Path to output RDF N-Triples data
-RDF_OUTPUT_PATH="$ETL_PROCESS_HOME"'/output'
+RDF_OUTPUT_PATH="$ETL_PROCESS_HOME"'/rdf-data/ntriples'
 
 # Jena settings
 JVM_ARGS=${JVM_ARGS:--Xmx4096M}
@@ -55,9 +55,31 @@ done
 echo "Transformation done..."
 echo ""
 
+echo "################################"
+echo "Generate ntriples.tar.gz File..."
+echo "################################"
+
+time tar -czvf ntriples.tar.gz "$RDF_OUTPUT_PATH/*.nt"
+
+echo "Done..."
+echo ""
+
 # Move generated N-Triples files to HDFS
-echo "hadoop fs -copyFromLocal "$RDF_OUTPUT_PATH" "$HDFS_PATH""
+echo "###############################"
+echo "Move ntriples.tar.gz to HDFS..."
+echo "###############################"
+
+time hdfs dfs -put "$RDF_OUTPUT_PATH" "$HDFS_PATH"
+
+echo "Done..."
+echo ""
 
 # Execute ETL Process by Java Programm for loading MDM and creating OLAP Cube in Apache Kylin
+echo "######################"
+echo "Execute ETL Process..."
+echo "######################"
 ETL_CP="$ETL_PROCESS_HOME"'/etl_process_v1.jar'
-java -cp "$ETL_CP" org.mustangore.etl.ETLProcess
+time java -cp "$ETL_CP" org.mustangore.etl.ETLProcess
+
+echo "Done..."
+echo ""

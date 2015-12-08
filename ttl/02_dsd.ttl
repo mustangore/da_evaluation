@@ -6,10 +6,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix skosclass: <http://ddialliance.org/ontologies/skosclass#> .
 @prefix xkos: <http://purl.org/linked-data/xkos#> .
-# @prefix qb4o: <http://purl.org/olap#> .
 
 ## SJ
-
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix qb4o: <http://purl.org/qb4olap/cubes#> .
@@ -28,8 +26,8 @@ rdfh-inst:dsd
   qb:component rdfh:lo_CompMeas2 ;
   qb:component rdfh:lo_CompMeas3 ;
   qb:component rdfh:lo_CompMeas4 ;
-  # qb:component rdfh:lo_CompMeas5 ;
-  # qb:component rdfh:lo_CompMeas6 ;
+  qb:component rdfh:lo_CompMeas5 ;
+  qb:component rdfh:lo_CompMeas6 ;
   qb:component rdfh:lo_CompMeas7 .
 
 # Dimension - Date
@@ -89,35 +87,7 @@ rdfh:lo_partkeyPartLevel xkos:depth "4".
 
 # Rest...
 rdfh:lo_Comp qb:dimension rdfh:lo_quantity .
-
 rdfh:lo_Comp qb:dimension rdfh:lo_discount .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_orderkey .
-rdfh:lo_orderkey qb:codeList rdfh:lo_orderkeyCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_linenumber .
-rdfh:lo_linenumber qb:codeList rdfh:lo_linenumberCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_orderpriority .
-rdfh:lo_orderpriority qb:codeList rdfh:lo_orderpriorityCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_shippriority .
-rdfh:lo_shippriority qb:codeList rdfh:lo_shippriorityCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_ordtotalprice .
-rdfh:lo_ordtotalprice qb:codeList rdfh:lo_ordtotalpriceCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_supplycost .
-rdfh:lo_supplycost qb:codeList rdfh:lo_supplycostCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_tax .
-rdfh:lo_tax qb:codeList rdfh:lo_taxCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_commitdate .
-rdfh:lo_commitdate qb:codeList rdfh:lo_commitdateCodeList .
-
-rdfh:lo_Comp qb:dimension rdfh:lo_shipmode .
-rdfh:lo_shipmode qb:codeList rdfh:lo_shipmodeCodeList .
 
 # Measures
 rdfh:lo_CompMeas1 qb:measure rdfh:lo_discount .
@@ -132,13 +102,13 @@ rdfh:lo_CompMeas3 qb4o:aggregateFunction qb4o:sum .
 rdfh:lo_CompMeas4 qb:measure rdfh:lo_revenue .
 rdfh:lo_CompMeas4 qb4o:aggregateFunction qb4o:sum .
 
-# rdfh:lo_CompMeas5 qb:measure rdfh:sum_revenue .
-# rdfh:lo_CompMeas5 qb4o:aggregateFunction "sum(rdfh:lo_extendedprice * rdfh:lo_discount)" .
-# rdfh:lo_CompMeas5 qb:componentAttachment qb:DataStructureDefinition .
+rdfh:lo_CompMeas5 qb:measure rdfh:sum_revenue .
+rdfh:lo_CompMeas5 qb4o:aggregateFunction "sum(rdfh:lo_extendedprice * rdfh:lo_discount)" .
+rdfh:lo_CompMeas5 qb:componentAttachment qb:DataStructureDefinition .
 
-# rdfh:lo_CompMeas6 qb:measure rdfh:sum_profit .
-# rdfh:lo_CompMeas6 qb4o:aggregateFunction "sum(rdfh:lo_revenue - rdfh:lo_supplycost)" .
-# rdfh:lo_CompMeas6 qb:componentAttachment qb:DataStructureDefinition .
+rdfh:lo_CompMeas6 qb:measure rdfh:sum_profit .
+rdfh:lo_CompMeas6 qb4o:aggregateFunction "sum(rdfh:lo_revenue - rdfh:lo_supplycost)" .
+rdfh:lo_CompMeas6 qb:componentAttachment qb:DataStructureDefinition .
 
 rdfh:lo_CompMeas7 qb:measure rdfh:lo_supplycost .
 rdfh:lo_CompMeas7 qb4o:aggregateFunction qb4o:sum .
@@ -152,7 +122,7 @@ rdfh:lo_discount a rdf:Property, qb:MeasureProperty ;
 rdfh:lo_quantity a rdf:Property, qb:MeasureProperty ;
   rdfs:label "Quantity" ;
   rdfs:subPropertyOf sdmx-measure:obsValue ;
-  rdfs:range xsd:int .
+  rdfs:range xsd:double .
 
 rdfh:lo_extendedprice a rdf:Property, qb:MeasureProperty ;
   rdfs:label "Extended Price" ;
@@ -164,15 +134,15 @@ rdfh:lo_revenue a rdf:Property, qb:MeasureProperty ;
   rdfs:subPropertyOf sdmx-measure:obsValue ;
   rdfs:range xsd:int .
 
-# rdfh:sum_revenue a rdf:Property, qb:MeasureProperty ;
-#   rdfs:label "Sum Revenue" ;
-#   rdfs:subPropertyOf sdmx-measure:obsValue ;
-#   rdfs:range xsd:double .
+rdfh:sum_revenue a rdf:Property, qb:MeasureProperty ;
+  rdfs:label "Sum Revenue" ;
+  rdfs:subPropertyOf sdmx-measure:obsValue ;
+  rdfs:range xsd:double .
 
-# rdfh:sum_profit a rdf:Property, qb:MeasureProperty ;
-#   rdfs:label "Sum Profit" ;
-#   rdfs:subPropertyOf sdmx-measure:obsValue ;
-#   rdfs:range xsd:int .
+rdfh:sum_profit a rdf:Property, qb:MeasureProperty ;
+  rdfs:label "Sum Profit" ;
+  rdfs:subPropertyOf sdmx-measure:obsValue ;
+  rdfs:range xsd:int .
 
 rdfh:lo_supplycost a rdf:Property, qb:MeasureProperty ;
   rdfs:label "Supply Cost" ;
