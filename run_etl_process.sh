@@ -54,14 +54,14 @@ echo $(expr $(date +"%s") - $ts)
 echo "Transformation done..."
 echo ""
 
-echo "################################"
-echo "Generate ntriples.tar.gz File..."
-echo "################################"
-ts=$(date +"%s");
-time tar -czvf ntriples.tar.gz $RDF_OUTPUT_PATH/*.nt
-echo $(expr $(date +"%s") - $ts)
-echo "Done..."
-echo ""
+#echo "################################"
+#echo "Generate ntriples.tar.gz File..."
+#echo "################################"
+#ts=$(date +"%s");
+#time tar -czvf ntriples.tar.gz $RDF_OUTPUT_PATH/*.nt
+#echo $(expr $(date +"%s") - $ts)
+#echo "Done..."
+#echo ""
 
 # Move generated N-Triples files to HDFS
 echo "###############################"
@@ -69,8 +69,8 @@ echo "Move ntriples.tar.gz to HDFS..."
 echo "###############################"
 
 ts=$(date +"%s");
-#hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
-hdfs dfs -put ntriples.tar.gz $HDFS_PATH
+hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
+#hdfs dfs -put ntriples.tar.gz $HDFS_PATH
 echo $(expr $(date +"%s") - $ts)
 echo "Done..."
 echo ""
