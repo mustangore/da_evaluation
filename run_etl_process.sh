@@ -69,7 +69,8 @@ echo "Move ntriples.tar.gz to HDFS..."
 echo "###############################"
 
 ts=$(date +"%s");
-hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
+#hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
+hdfs dfs -put ntriples.tar.gz $HDFS_PATH
 echo $(expr $(date +"%s") - $ts)
 echo "Done..."
 echo ""
