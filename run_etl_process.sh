@@ -44,8 +44,7 @@ do
     extension="${full_filename##*.}"
     filename="${full_filename%.*}"
 
-    if ! [ $extension == "nt"  ] && ! [ $extension == "ntriples" ]
-      then
+    if [ $extension != "nt"  ] && [ $extension != "ntriples" ] ; then
       echo "Transforming '$full_filename' to N-Triples '$filename.nt'"
       java $JVM_ARGS $LOGGING -cp "$JENA_CP" riotcmd.riot --time -q --output=nt "$entry" > "$RDF_OUTPUT_PATH/$filename".nt
     fi
@@ -58,8 +57,7 @@ echo ""
 echo "################################"
 echo "Generate ntriples.tar.gz File..."
 echo "################################"
-
-time tar -czvf ntriples.tar.gz "$RDF_OUTPUT_PATH/*.nt"
+time tar -czvf ntriples.tar.gz $RDF_OUTPUT_PATH/*.nt
 
 echo "Done..."
 echo ""
@@ -69,7 +67,7 @@ echo "###############################"
 echo "Move ntriples.tar.gz to HDFS..."
 echo "###############################"
 
-time hdfs dfs -put "$RDF_OUTPUT_PATH" "$HDFS_PATH"
+time hdfs dfs -put $RDF_OUTPUT_PATH $HDFS_PATH
 
 echo "Done..."
 echo ""
@@ -79,7 +77,7 @@ echo "######################"
 echo "Execute ETL Process..."
 echo "######################"
 ETL_CP="$ETL_PROCESS_HOME"'/etl_process_v1.jar'
-time java -cp "$ETL_CP" org.mustangore.etl.ETLProcess
+#time java -cp "$ETL_CP" org.mustangore.etl.ETLProcess
 
 echo "Done..."
 echo ""
