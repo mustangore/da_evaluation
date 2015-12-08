@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Path to HDFS directory for uploading RDF N-Triples Data
-HDFS_PATH="/user/sjelsch/my_test"
+HDFS_PATH="/user/ec2-user"
 
 # Generell stuff, get current path
 if [ -z "$ETL_PROCESS_HOME" ]
@@ -79,7 +79,7 @@ echo "######################"
 echo "Execute ETL Process..."
 echo "######################"
 ETL_CP="$ETL_PROCESS_HOME"'/etl_process_v1.jar'
-#time java -cp "$ETL_CP" org.mustangore.etl.ETLProcess
+time java -cp "$ETL_CP" org.mustangore.etl.ETLProcess
 
 echo "Done..."
 echo ""
