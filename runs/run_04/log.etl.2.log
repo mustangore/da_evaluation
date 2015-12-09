@@ -1,0 +1,237 @@
+2015-12-08 20:15:39 INFO  HiveConnection:21 - Hive Connection to 10.0.0.132:10000/default Established...
+
+2015-12-08 20:15:39 INFO  HiveTableGenerator:58 - Create External Triples Table 'qb_triples'...
+2015-12-08 20:15:39 DEBUG HiveTableGenerator:143 - - createExternalTriplesTable Query: CREATE EXTERNAL TABLE qb_triples ( subject STRING, predicate STRING, object STRING )  ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'  WITH SERDEPROPERTIES ( "input.regex" = "([^ ]*) ([^ ]*) (.*) \.",  "output.format.string" = "%1$s %2$s %3$s" )  STORED AS TEXTFILE  LOCATION '/user/ec2-user/ntriples/' 
+2015-12-08 20:15:39 INFO  HiveTableGenerator:74 - Create Optimized Triples Table 'qb_triples_opt'...
+2015-12-08 20:15:39 DEBUG HiveTableGenerator:165 - - createOptimizedTriplesTable Query: CREATE TABLE qb_triples_opt ( subject STRING, predicate String, object STRING ) STORED AS PARQUET
+2015-12-08 20:15:39 DEBUG HiveTableGenerator:184 - - loadTriplesToOptimizedTable Query: INSERT INTO TABLE qb_triples_opt SELECT subject, predicate, object FROM qb_triples
+2015-12-08 20:18:58 INFO  ETLProcess:33 - Execution Time Component 1: 199358
+2015-12-08 20:18:58 INFO  ETLProcess:38 - Component 2: Load MDM Models form Hive Table 'qb_triples_opt'...
+2015-12-08 20:18:58 INFO  MeasuresLoader:31 - Loading all Measures...
+2015-12-08 20:18:58 DEBUG MeasuresLoader:150 - - load Measures Query: SELECT tb1.* FROM qb_triples_opt AS tb1 WHERE predicate = "<http://purl.org/linked-data/cube#measure>" 
+2015-12-08 20:19:59 DEBUG MeasuresLoader:161 - - load Measure Aggregation Functions Query: SELECT tb1.* FROM qb_triples_opt AS tb1 WHERE predicate = "<http://purl.org/qb4olap/cubes#aggregateFunction>" 
+2015-12-08 20:20:53 DEBUG MeasuresLoader:185 - - load Measure Information Query: SELECT tb1.* FROM qb_triples_opt as tb1 WHERE   (     tb1.predicate = "<http://www.w3.org/2000/01/rdf-schema#range>"     OR tb1.predicate = "<http://www.w3.org/2000/01/rdf-schema#label>"   )   AND tb1.subject IN ( "<http://lod2.eu/schemas/rdfh#lo_extendedprice>" , "<http://lod2.eu/schemas/rdfh#lo_revenue>" , "<http://lod2.eu/schemas/rdfh#lo_discount>" , "<http://lod2.eu/schemas/rdfh#sum_revenue>" , "<http://lod2.eu/schemas/rdfh#lo_quantity>" , "<http://lod2.eu/schemas/rdfh#lo_supplycost>" , "<http://lod2.eu/schemas/rdfh#sum_profit>"   ) 
+2015-12-08 20:21:51 INFO  DimensionsLoader:38 - Loading all Dimensions, Hierarchies and Levels...
+2015-12-08 20:21:51 DEBUG DimensionsLoader:122 - - load Dimensions Query: SELECT tb1.* FROM qb_triples_opt AS tb1 WHERE predicate = "<http://purl.org/linked-data/cube#dimension>" 
+2015-12-08 20:22:45 DEBUG DimensionsLoader:133 - - load CodeLists Query: SELECT tb1.* FROM qb_triples_opt AS tb1 WHERE predicate = "<http://purl.org/linked-data/cube#codeList>" 
+2015-12-08 20:23:41 DEBUG DimensionsLoader:147 - - load Levels Query: SELECT tb1.subject, tb1.object, tb2.object as depth FROM qb_triples_opt as tb1 JOIN qb_triples_opt as tb2 ON (tb1.subject = tb2.subject) WHERE   tb1.predicate = "<http://www.w3.org/2004/02/skos/core#inScheme>"   AND tb2.predicate = "<http://purl.org/linked-data/xkos#depth>" 
+2015-12-08 20:24:59 INFO  FactGenerator:27 - Generating Fact Model...
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#lo_extendedprice>
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#lo_revenue>
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#lo_discount>
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#sum_revenue>
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#lo_quantity>
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#lo_supplycost>
+2015-12-08 20:24:59 DEBUG FactGenerator:30 - Fact Measure Attribute found: <http://lod2.eu/schemas/rdfh#sum_profit>
+2015-12-08 20:24:59 DEBUG FactGenerator:44 - Fact Foreign Key Attribute found: <http://lod2.eu/schemas/rdfh#lo_partkey>
+2015-12-08 20:24:59 DEBUG FactGenerator:44 - Fact Foreign Key Attribute found: <http://lod2.eu/schemas/rdfh#lo_custkey>
+2015-12-08 20:24:59 DEBUG FactGenerator:44 - Fact Foreign Key Attribute found: <http://lod2.eu/schemas/rdfh#lo_suppkey>
+2015-12-08 20:24:59 DEBUG FactGenerator:44 - Fact Foreign Key Attribute found: <http://lod2.eu/schemas/rdfh#lo_orderdate>
+2015-12-08 20:24:59 INFO  ETLProcess:45 - Execution Time Component 2: 360717
+2015-12-08 20:24:59 INFO  ETLProcess:46 - Component 2 - Result MDM: 
+Measures:
+	Measure: <http://lod2.eu/schemas/rdfh#lo_extendedprice>
+		Name: "Extended Price"
+		ColumnName: LO_EXTENDEDPRICE
+		Type: double
+		Aggregate: sum
+		isCalculatedMember: false
+	Measure: <http://lod2.eu/schemas/rdfh#lo_revenue>
+		Name: "Revenue"
+		ColumnName: LO_REVENUE
+		Type: int
+		Aggregate: sum
+		isCalculatedMember: false
+	Measure: <http://lod2.eu/schemas/rdfh#lo_discount>
+		Name: "Discount"
+		ColumnName: LO_DISCOUNT
+		Type: double
+		Aggregate: sum
+		isCalculatedMember: false
+	Measure: <http://lod2.eu/schemas/rdfh#sum_revenue>
+		Name: "Sum Revenue"
+		ColumnName: SUM_REVENUE
+		Type: double
+		Aggregate: sum
+		isCalculatedMember: true
+		calculcatedMemberFormula: <http://lod2.eu/schemas/rdfh#lo_extendedprice> * <http://lod2.eu/schemas/rdfh#lo_discount>
+	Measure: <http://lod2.eu/schemas/rdfh#lo_quantity>
+		Name: "Quantity"
+		ColumnName: LO_QUANTITY
+		Type: double
+		Aggregate: sum
+		isCalculatedMember: false
+	Measure: <http://lod2.eu/schemas/rdfh#lo_supplycost>
+		Name: "Supply Cost"
+		ColumnName: LO_SUPPLYCOST
+		Type: int
+		Aggregate: sum
+		isCalculatedMember: false
+	Measure: <http://lod2.eu/schemas/rdfh#sum_profit>
+		Name: "Sum Profit"
+		ColumnName: SUM_PROFIT
+		Type: int
+		Aggregate: sum
+		isCalculatedMember: true
+		calculcatedMemberFormula: <http://lod2.eu/schemas/rdfh#lo_revenue> - <http://lod2.eu/schemas/rdfh#lo_supplycost>
+Dimensions:
+	Dimension: <http://lod2.eu/schemas/rdfh#lo_discount>
+		Name: lo_discount
+		TableName: LO_DISCOUNT
+		PrimaryColumnName: KEY
+		Hierarchies:
+		Attributes:
+
+	Dimension: <http://lod2.eu/schemas/rdfh#lo_quantity>
+		Name: lo_quantity
+		TableName: LO_QUANTITY
+		PrimaryColumnName: KEY
+		Hierarchies:
+		Attributes:
+
+	Dimension: <http://lod2.eu/schemas/rdfh#lo_partkey>
+		Name: lo_partkey
+		TableName: LO_PARTKEY
+		PrimaryColumnName: KEY
+		Hierarchies:
+		Hierarchy: <http://lod2.eu/schemas/rdfh#lo_partkeyCodeList>
+			Name: lo_partkeyCodeList
+			Levels:
+			Level: <http://lod2.eu/schemas/rdfh#lo_partkeyMfgrLevel>
+				Name: LO_PARTKEYMFGRLEVEL
+				ParentLevel: -
+				Depth: 1
+			Level: <http://lod2.eu/schemas/rdfh#lo_partkeyCategoryLevel>
+				Name: LO_PARTKEYCATEGORYLEVEL
+				ParentLevel: -
+				Depth: 2
+			Level: <http://lod2.eu/schemas/rdfh#lo_partkeyBrand1Level>
+				Name: LO_PARTKEYBRAND1LEVEL
+				ParentLevel: -
+				Depth: 3
+			Level: <http://lod2.eu/schemas/rdfh#lo_partkeyPartLevel>
+				Name: LO_PARTKEYPARTLEVEL
+				ParentLevel: -
+				Depth: 4
+		Attributes:
+
+	Dimension: <http://lod2.eu/schemas/rdfh#lo_custkey>
+		Name: lo_custkey
+		TableName: LO_CUSTKEY
+		PrimaryColumnName: KEY
+		Hierarchies:
+		Hierarchy: <http://lod2.eu/schemas/rdfh#lo_custkeyCodeList>
+			Name: lo_custkeyCodeList
+			Levels:
+			Level: <http://lod2.eu/schemas/rdfh#lo_custkeyRegionLevel>
+				Name: LO_CUSTKEYREGIONLEVEL
+				ParentLevel: -
+				Depth: 1
+			Level: <http://lod2.eu/schemas/rdfh#lo_custkeyNationLevel>
+				Name: LO_CUSTKEYNATIONLEVEL
+				ParentLevel: -
+				Depth: 2
+			Level: <http://lod2.eu/schemas/rdfh#lo_custkeyCityLevel>
+				Name: LO_CUSTKEYCITYLEVEL
+				ParentLevel: -
+				Depth: 3
+			Level: <http://lod2.eu/schemas/rdfh#lo_custkeyCustomerLevel>
+				Name: LO_CUSTKEYCUSTOMERLEVEL
+				ParentLevel: -
+				Depth: 4
+		Attributes:
+
+	Dimension: <http://lod2.eu/schemas/rdfh#lo_suppkey>
+		Name: lo_suppkey
+		TableName: LO_SUPPKEY
+		PrimaryColumnName: KEY
+		Hierarchies:
+		Hierarchy: <http://lod2.eu/schemas/rdfh#lo_suppkeyCodeList>
+			Name: lo_suppkeyCodeList
+			Levels:
+			Level: <http://lod2.eu/schemas/rdfh#lo_suppkeyRegionLevel>
+				Name: LO_SUPPKEYREGIONLEVEL
+				ParentLevel: -
+				Depth: 1
+			Level: <http://lod2.eu/schemas/rdfh#lo_suppkeyNationLevel>
+				Name: LO_SUPPKEYNATIONLEVEL
+				ParentLevel: -
+				Depth: 2
+			Level: <http://lod2.eu/schemas/rdfh#lo_suppkeyCityLevel>
+				Name: LO_SUPPKEYCITYLEVEL
+				ParentLevel: -
+				Depth: 3
+			Level: <http://lod2.eu/schemas/rdfh#lo_suppkeySupplierLevel>
+				Name: LO_SUPPKEYSUPPLIERLEVEL
+				ParentLevel: -
+				Depth: 4
+		Attributes:
+
+	Dimension: <http://lod2.eu/schemas/rdfh#lo_orderdate>
+		Name: lo_orderdate
+		TableName: LO_ORDERDATE
+		PrimaryColumnName: KEY
+		Hierarchies:
+		Hierarchy: <http://lod2.eu/schemas/rdfh#lo_orderdateCodeList>
+			Name: lo_orderdateCodeList
+			Levels:
+			Level: <http://lod2.eu/schemas/rdfh#lo_orderdateYearLevel>
+				Name: LO_ORDERDATEYEARLEVEL
+				ParentLevel: -
+				Depth: 1
+			Level: <http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthLevel>
+				Name: LO_ORDERDATEYEARMONTHLEVEL
+				ParentLevel: -
+				Depth: 2
+			Level: <http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthNumLevel>
+				Name: LO_ORDERDATEYEARMONTHNUMLEVEL
+				ParentLevel: -
+				Depth: 3
+			Level: <http://lod2.eu/schemas/rdfh#lo_orderdateDateLevel>
+				Name: LO_ORDERDATEDATELEVEL
+				ParentLevel: -
+				Depth: 4
+		Hierarchy: <http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyearCodeList>
+			Name: lo_orderdateWeeknuminyearCodeList
+			Levels:
+			Level: <http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyearLevel>
+				Name: LO_ORDERDATEWEEKNUMINYEARLEVEL
+				ParentLevel: -
+				Depth: 1
+			Level: <http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyearDateLevel>
+				Name: LO_ORDERDATEWEEKNUMINYEARDATELEVEL
+				ParentLevel: -
+				Depth: 2
+		Attributes:
+Fact:
+	tableName: FACTS
+	MeasureUris:
+		MeasureUri: <http://lod2.eu/schemas/rdfh#lo_extendedprice>
+		MeasureUri: <http://lod2.eu/schemas/rdfh#lo_revenue>
+		MeasureUri: <http://lod2.eu/schemas/rdfh#lo_discount>
+		MeasureUri: <http://lod2.eu/schemas/rdfh#sum_revenue>
+		MeasureUri: <http://lod2.eu/schemas/rdfh#lo_quantity>
+		MeasureUri: <http://lod2.eu/schemas/rdfh#lo_supplycost>
+		MeasureUri: <http://lod2.eu/schemas/rdfh#sum_profit>
+	DimensionUris:
+		DimensionUri: <http://lod2.eu/schemas/rdfh#lo_partkey>
+		DimensionUri: <http://lod2.eu/schemas/rdfh#lo_custkey>
+		DimensionUri: <http://lod2.eu/schemas/rdfh#lo_suppkey>
+		DimensionUri: <http://lod2.eu/schemas/rdfh#lo_orderdate>
+	ColumnNamesUris:
+2015-12-08 20:24:59 INFO  ETLProcess:50 - Component 3: Create Star Schema from Hive Table 'qb_triples_opt'...
+2015-12-08 20:24:59 INFO  HiveTableGenerator:91 - Create Star Schema Dimension Tables...
+2015-12-08 20:24:59 INFO  HiveTableGenerator:94 - Create Dimension Table: 'LO_PARTKEY'...
+2015-12-08 20:24:59 DEBUG HiveTableGenerator:247 - - createDimensionTableWithSingleHierarchy Query: CREATE TABLE LO_PARTKEY STORED AS PARQUET AS SELECT   tb1.object AS key ,  tb4.subject AS LO_PARTKEYMFGRLEVEL ,  tb3.subject AS LO_PARTKEYCATEGORYLEVEL ,  tb2.subject AS LO_PARTKEYBRAND1LEVEL FROM qb_triples_opt tb1 LEFT JOIN qb_triples_opt tb2 ON (tb2.object = tb1.object AND tb2.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb3 ON (tb3.object = tb2.subject AND tb3.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb4 ON (tb4.object = tb3.subject AND tb4.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") WHERE   tb1.subject = "<http://lod2.eu/schemas/rdfh#lo_partkeyPartLevel>"   AND tb1.predicate = "<http://www.w3.org/2004/02/skos/core#member>" 
+2015-12-08 20:29:01 INFO  HiveTableGenerator:94 - Create Dimension Table: 'LO_CUSTKEY'...
+2015-12-08 20:29:01 DEBUG HiveTableGenerator:247 - - createDimensionTableWithSingleHierarchy Query: CREATE TABLE LO_CUSTKEY STORED AS PARQUET AS SELECT   tb1.object AS key ,  tb4.subject AS LO_CUSTKEYREGIONLEVEL ,  tb3.subject AS LO_CUSTKEYNATIONLEVEL ,  tb2.subject AS LO_CUSTKEYCITYLEVEL FROM qb_triples_opt tb1 LEFT JOIN qb_triples_opt tb2 ON (tb2.object = tb1.object AND tb2.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb3 ON (tb3.object = tb2.subject AND tb3.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb4 ON (tb4.object = tb3.subject AND tb4.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") WHERE   tb1.subject = "<http://lod2.eu/schemas/rdfh#lo_custkeyCustomerLevel>"   AND tb1.predicate = "<http://www.w3.org/2004/02/skos/core#member>" 
+2015-12-08 20:32:59 INFO  HiveTableGenerator:94 - Create Dimension Table: 'LO_SUPPKEY'...
+2015-12-08 20:32:59 DEBUG HiveTableGenerator:247 - - createDimensionTableWithSingleHierarchy Query: CREATE TABLE LO_SUPPKEY STORED AS PARQUET AS SELECT   tb1.object AS key ,  tb4.subject AS LO_SUPPKEYREGIONLEVEL ,  tb3.subject AS LO_SUPPKEYNATIONLEVEL ,  tb2.subject AS LO_SUPPKEYCITYLEVEL FROM qb_triples_opt tb1 LEFT JOIN qb_triples_opt tb2 ON (tb2.object = tb1.object AND tb2.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb3 ON (tb3.object = tb2.subject AND tb3.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb4 ON (tb4.object = tb3.subject AND tb4.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") WHERE   tb1.subject = "<http://lod2.eu/schemas/rdfh#lo_suppkeySupplierLevel>"   AND tb1.predicate = "<http://www.w3.org/2004/02/skos/core#member>" 
+2015-12-08 20:36:53 INFO  HiveTableGenerator:94 - Create Dimension Table: 'LO_ORDERDATE'...
+2015-12-08 20:36:53 DEBUG HiveTableGenerator:330 - - createDimensionTableWithMultipleHierarchy Query: CREATE TABLE LO_ORDERDATE_tmp_1 STORED AS PARQUET AS SELECT   tb1.object as key ,  tb4.subject AS LO_ORDERDATEYEARLEVEL ,  tb3.subject AS LO_ORDERDATEYEARMONTHLEVEL ,  tb2.subject AS LO_ORDERDATEYEARMONTHNUMLEVEL FROM qb_triples_opt tb1 LEFT JOIN qb_triples_opt tb2 ON (tb2.object = tb1.object AND tb2.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb3 ON (tb3.object = tb2.subject AND tb3.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") LEFT JOIN qb_triples_opt tb4 ON (tb4.object = tb3.subject AND tb4.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") WHERE   tb1.subject = "<http://lod2.eu/schemas/rdfh#lo_orderdateDateLevel>"   AND tb1.predicate = "<http://www.w3.org/2004/02/skos/core#member>"   AND tb2.subject IN (     SELECT tbx.object     FROM qb_triples_opt tbx     WHERE       tbx.subject = "<http://lod2.eu/schemas/rdfh#lo_orderdateYearMonthNumLevel>"       AND tbx.predicate = "<http://www.w3.org/2004/02/skos/core#member>"   )
+2015-12-08 20:41:55 DEBUG HiveTableGenerator:330 - - createDimensionTableWithMultipleHierarchy Query: CREATE TABLE LO_ORDERDATE STORED AS PARQUET AS SELECT   tb0.* ,  tb2.subject AS LO_ORDERDATEWEEKNUMINYEARLEVEL FROM qb_triples_opt tb1 LEFT JOIN qb_triples_opt tb2 ON (tb2.object = tb1.object AND tb2.predicate = "<http://www.w3.org/2004/02/skos/core#narrower>") JOIN LO_ORDERDATE_tmp_1 as tb0 ON (tb1.object = tb0.key) WHERE   tb1.subject = "<http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyearDateLevel>"   AND tb1.predicate = "<http://www.w3.org/2004/02/skos/core#member>"   AND tb2.subject IN (     SELECT tbx.object     FROM qb_triples_opt tbx     WHERE       tbx.subject = "<http://lod2.eu/schemas/rdfh#lo_orderdateWeeknuminyearLevel>"       AND tbx.predicate = "<http://www.w3.org/2004/02/skos/core#member>"   )
+2015-12-08 20:44:29 INFO  HiveTableGenerator:122 - Create Hive Fact Table 'facts'...
+2015-12-08 20:44:29 DEBUG HiveTableGenerator:396 - - createFactTable Query: CREATE TABLE facts STORED AS PARQUET AS SELECT   tb1.subject as key ,  tb2.object as LO_PARTKEY ,  tb3.object as LO_CUSTKEY ,  tb4.object as LO_SUPPKEY ,  tb5.object as LO_ORDERDATE , cast(regexp_replace(split(tb6.object, "\\^\\^")[0],'"','') as double) LO_EXTENDEDPRICE , cast(regexp_replace(split(tb7.object, "\\^\\^")[0],'"','') as int) LO_REVENUE , cast(regexp_replace(split(tb8.object, "\\^\\^")[0],'"','') as double) LO_DISCOUNT , cast(regexp_replace(split(tb9.object, "\\^\\^")[0],'"','') as double) LO_QUANTITY , cast(regexp_replace(split(tb10.object, "\\^\\^")[0],'"','') as int) LO_SUPPLYCOST ,  cast(cast(regexp_replace(split(tb6.object, "\\^\\^")[0],'"','') as double)*cast(regexp_replace(split(tb8.object, "\\^\\^")[0],'"','') as double) as double) SUM_REVENUE FROM qb_triples_opt tb1 LEFT JOIN qb_triples_opt tb2 ON ( tb2.subject = tb1.subject AND tb2.predicate = "<http://lod2.eu/schemas/rdfh#lo_partkey>" ) LEFT JOIN qb_triples_opt tb3 ON ( tb3.subject = tb1.subject AND tb3.predicate = "<http://lod2.eu/schemas/rdfh#lo_custkey>" ) LEFT JOIN qb_triples_opt tb4 ON ( tb4.subject = tb1.subject AND tb4.predicate = "<http://lod2.eu/schemas/rdfh#lo_suppkey>" ) LEFT JOIN qb_triples_opt tb5 ON ( tb5.subject = tb1.subject AND tb5.predicate = "<http://lod2.eu/schemas/rdfh#lo_orderdate>" ) LEFT JOIN qb_triples_opt tb6 ON ( tb6.subject = tb1.subject AND tb6.predicate = "<http://lod2.eu/schemas/rdfh#lo_extendedprice>" ) LEFT JOIN qb_triples_opt tb7 ON ( tb7.subject = tb1.subject AND tb7.predicate = "<http://lod2.eu/schemas/rdfh#lo_revenue>" ) LEFT JOIN qb_triples_opt tb8 ON ( tb8.subject = tb1.subject AND tb8.predicate = "<http://lod2.eu/schemas/rdfh#lo_discount>" ) LEFT JOIN qb_triples_opt tb9 ON ( tb9.subject = tb1.subject AND tb9.predicate = "<http://lod2.eu/schemas/rdfh#lo_quantity>" ) LEFT JOIN qb_triples_opt tb10 ON ( tb10.subject = tb1.subject AND tb10.predicate = "<http://lod2.eu/schemas/rdfh#lo_supplycost>" ) WHERE   tb1.object = "<http://purl.org/linked-data/cube#Observation>"   AND tb1.predicate = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>" 
+2015-12-08 20:47:56 INFO  ETLProcess:64 - Execution Time Component 3: 1377421
+2015-12-08 20:47:56 INFO  ETLProcess:65 - Component 3: Star Schema created!
+2015-12-08 20:47:56 INFO  ETLProcess:99 - Execution Time Global: 1937502

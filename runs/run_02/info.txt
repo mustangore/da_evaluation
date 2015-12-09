@@ -1,0 +1,10 @@
+Mondrian Cache: deaktiviert
+Kylin Cache: aktiviert
+Anzahl DataNodes: 3
+Parquet:  Ja
+Partition:  Ja
+Attribute Laden?  Nein
+Skalierung: 1
+Rechner: m4.xlarge
+Festplatte:  850GB
+Aggregation Groups:  Ja
