@@ -1,0 +1,28 @@
+/home/ec2-user/development/evaluation/rdf-data/customer.ttl :  6,70 sec  2.700.000 triples  403.045,23 TPS
+/home/ec2-user/development/evaluation/rdf-data/date.ttl :  1,08 sec  46.008 triples  42.560,59 TPS
+/home/ec2-user/development/evaluation/rdf-data/dsd.ttl :  0,05 sec  111 triples  2.413,04 TPS
+/home/ec2-user/development/evaluation/rdf-data/levels.ttl : 20,34 sec  3.381.351 triples  166.274,14 TPS
+/home/ec2-user/development/evaluation/rdf-data/lineorder_qb.ttl : 3.901,45 sec  1.199.724.280 triples  307.507,60 TPS
+/home/ec2-user/development/evaluation/rdf-data/part.ttl : 20,10 sec  8.000.000 triples  398.009,95 TPS
+/home/ec2-user/development/evaluation/rdf-data/supplier.ttl :  1,32 sec  160.000 triples  121.673,00 TPS
+3957
+
+
+
+##################
+ Compress files...
+##################
+Compress 'customer.nt' to 'customer.nt.gz'
+Compress 'date.nt' to 'date.nt.gz'
+Compress 'dsd.nt' to 'dsd.nt.gz'
+Compress 'levels.nt' to 'levels.nt.gz'
+Compress 'lineorder_qb.nt' to 'lineorder_qb.nt.gz'
+Compress 'part.nt' to 'part.nt.gz'
+Compress 'supplier.nt' to 'supplier.nt.gz'
+2029
+
+
+##############################
+Move ntriples files to HDFS...
+##############################
+81
