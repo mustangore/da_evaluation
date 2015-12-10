@@ -1,5 +1,7 @@
 SPARQL
 
+DEFINE sql:log-enable 3
+
 prefix rdfh: <http://lod2.eu/schemas/rdfh#>
 prefix rdfh-inst: <http://lod2.eu/schemas/rdfh-inst#>
 prefix qb: <http://purl.org/linked-data/cube#>
