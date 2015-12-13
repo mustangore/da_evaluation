@@ -1,0 +1,4 @@
+Anzahl DataNodes: 3
+Parquet: Ja
+Partition: Nein
+Attribute Laden? Nein

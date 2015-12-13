@@ -1,0 +1,174 @@
+2015-12-13 08:40:38 INFO  ETLProcess:103 - Running MDX Queries...
+2015-12-13 08:40:42 INFO  MondrianConnection:26 - Mondrian Connection to http://10.0.0.100:7070/kylin Established...
+
+2015-12-13 08:40:42 INFO  MondrianBenchmark:58 -
+2015-12-13 08:40:42 INFO  MondrianBenchmark:59 - Iteration: 1
+2015-12-13 08:40:45 INFO  MondrianBenchmark:65 - Execution Time Query 1: 2936
+2015-12-13 08:40:47 INFO  MondrianBenchmark:65 - Execution Time Query 2: 1930
+2015-12-13 08:40:50 INFO  MondrianBenchmark:65 - Execution Time Query 3: 2227
+2015-12-13 08:40:57 INFO  MondrianBenchmark:65 - Execution Time Query 4: 6998
+2015-12-13 08:41:03 INFO  MondrianBenchmark:65 - Execution Time Query 5: 6160
+2015-12-13 08:41:05 INFO  MondrianBenchmark:65 - Execution Time Query 6: 1890
+2015-12-13 08:41:14 INFO  MondrianBenchmark:65 - Execution Time Query 7: 8849
+2015-12-13 08:41:22 INFO  MondrianBenchmark:65 - Execution Time Query 8: 8156
+2015-12-13 08:41:24 INFO  MondrianBenchmark:65 - Execution Time Query 9: 2059
+2015-12-13 08:41:26 INFO  MondrianBenchmark:65 - Execution Time Query 10: 2067
+2015-12-13 08:41:38 INFO  MondrianBenchmark:65 - Execution Time Query 11: 11613
+2015-12-13 08:42:23 INFO  MondrianBenchmark:65 - Execution Time Query 12: 44871
+2015-12-13 08:42:33 INFO  MondrianBenchmark:65 - Execution Time Query 13: 10370
+2015-12-13 08:42:33 INFO  MondrianBenchmark:58 -
+2015-12-13 08:42:33 INFO  MondrianBenchmark:59 - Iteration: 2
+2015-12-13 08:42:34 INFO  MondrianBenchmark:65 - Execution Time Query 1: 1351
+2015-12-13 08:42:36 INFO  MondrianBenchmark:65 - Execution Time Query 2: 1335
+2015-12-13 08:42:37 INFO  MondrianBenchmark:65 - Execution Time Query 3: 1638
+2015-12-13 08:42:39 INFO  MondrianBenchmark:65 - Execution Time Query 4: 2086
+2015-12-13 08:42:45 INFO  MondrianBenchmark:65 - Execution Time Query 5: 5730
+2015-12-13 08:42:47 INFO  MondrianBenchmark:65 - Execution Time Query 6: 1916
+2015-12-13 08:42:49 INFO  MondrianBenchmark:65 - Execution Time Query 7: 1529
+2015-12-13 08:42:50 INFO  MondrianBenchmark:65 - Execution Time Query 8: 1498
+2015-12-13 08:42:52 INFO  MondrianBenchmark:65 - Execution Time Query 9: 2130
+2015-12-13 08:42:54 INFO  MondrianBenchmark:65 - Execution Time Query 10: 1798
+2015-12-13 08:42:57 INFO  MondrianBenchmark:65 - Execution Time Query 11: 2736
+2015-12-13 08:42:59 INFO  MondrianBenchmark:65 - Execution Time Query 12: 2037
+2015-12-13 08:43:01 INFO  MondrianBenchmark:65 - Execution Time Query 13: 2537
+2015-12-13 08:43:02 INFO  MondrianBenchmark:58 -
+2015-12-13 08:43:02 INFO  MondrianBenchmark:59 - Iteration: 3
+2015-12-13 08:43:03 INFO  MondrianBenchmark:65 - Execution Time Query 1: 1277
+2015-12-13 08:43:04 INFO  MondrianBenchmark:65 - Execution Time Query 2: 1264
+2015-12-13 08:43:06 INFO  MondrianBenchmark:65 - Execution Time Query 3: 1535
+2015-12-13 08:43:08 INFO  MondrianBenchmark:65 - Execution Time Query 4: 2008
+2015-12-13 08:43:13 INFO  MondrianBenchmark:65 - Execution Time Query 5: 5701
+2015-12-13 08:43:15 INFO  MondrianBenchmark:65 - Execution Time Query 6: 1785
+2015-12-13 08:43:17 INFO  MondrianBenchmark:65 - Execution Time Query 7: 1545
+2015-12-13 08:43:18 INFO  MondrianBenchmark:65 - Execution Time Query 8: 1483
+2015-12-13 08:43:20 INFO  MondrianBenchmark:65 - Execution Time Query 9: 1949
+2015-12-13 08:43:22 INFO  MondrianBenchmark:65 - Execution Time Query 10: 1756
+2015-12-13 08:43:25 INFO  MondrianBenchmark:65 - Execution Time Query 11: 2693
+2015-12-13 08:43:27 INFO  MondrianBenchmark:65 - Execution Time Query 12: 2122
+2015-12-13 08:43:29 INFO  MondrianBenchmark:65 - Execution Time Query 13: 2532
+2015-12-13 08:43:29 INFO  MondrianBenchmark:58 -
+2015-12-13 08:43:29 INFO  MondrianBenchmark:59 - Iteration: 4
+2015-12-13 08:43:30 INFO  MondrianBenchmark:65 - Execution Time Query 1: 1225
+2015-12-13 08:43:32 INFO  MondrianBenchmark:65 - Execution Time Query 2: 1246
+2015-12-13 08:43:33 INFO  MondrianBenchmark:65 - Execution Time Query 3: 1506
+2015-12-13 08:43:35 INFO  MondrianBenchmark:65 - Execution Time Query 4: 2062
+2015-12-13 08:43:41 INFO  MondrianBenchmark:65 - Execution Time Query 5: 5559
+2015-12-13 08:43:43 INFO  MondrianBenchmark:65 - Execution Time Query 6: 1841
+2015-12-13 08:43:44 INFO  MondrianBenchmark:65 - Execution Time Query 7: 1432
+2015-12-13 08:43:46 INFO  MondrianBenchmark:65 - Execution Time Query 8: 1508
+2015-12-13 08:43:48 INFO  MondrianBenchmark:65 - Execution Time Query 9: 1966
+2015-12-13 08:43:49 INFO  MondrianBenchmark:65 - Execution Time Query 10: 1749
+2015-12-13 08:43:52 INFO  MondrianBenchmark:65 - Execution Time Query 11: 2653
+2015-12-13 08:43:54 INFO  MondrianBenchmark:65 - Execution Time Query 12: 1985
+2015-12-13 08:43:57 INFO  MondrianBenchmark:65 - Execution Time Query 13: 2515
+2015-12-13 08:43:57 INFO  MondrianBenchmark:58 -
+2015-12-13 08:43:57 INFO  MondrianBenchmark:59 - Iteration: 5
+2015-12-13 08:43:58 INFO  MondrianBenchmark:65 - Execution Time Query 1: 1230
+2015-12-13 08:43:59 INFO  MondrianBenchmark:65 - Execution Time Query 2: 1202
+2015-12-13 08:44:01 INFO  MondrianBenchmark:65 - Execution Time Query 3: 1521
+2015-12-13 08:44:03 INFO  MondrianBenchmark:65 - Execution Time Query 4: 1998
+2015-12-13 08:44:08 INFO  MondrianBenchmark:65 - Execution Time Query 5: 5547
+2015-12-13 08:44:10 INFO  MondrianBenchmark:65 - Execution Time Query 6: 1792
+2015-12-13 08:44:11 INFO  MondrianBenchmark:65 - Execution Time Query 7: 1429
+2015-12-13 08:44:13 INFO  MondrianBenchmark:65 - Execution Time Query 8: 1479
+2015-12-13 08:44:15 INFO  MondrianBenchmark:65 - Execution Time Query 9: 1930
+2015-12-13 08:44:16 INFO  MondrianBenchmark:65 - Execution Time Query 10: 1738
+2015-12-13 08:44:19 INFO  MondrianBenchmark:65 - Execution Time Query 11: 2669
+2015-12-13 08:44:21 INFO  MondrianBenchmark:65 - Execution Time Query 12: 1979
+2015-12-13 08:44:24 INFO  MondrianBenchmark:65 - Execution Time Query 13: 2526
+2015-12-13 08:44:24 INFO  MondrianBenchmark:58 -
+2015-12-13 08:44:24 INFO  MondrianBenchmark:59 - Iteration: 6
+2015-12-13 08:44:25 INFO  MondrianBenchmark:65 - Execution Time Query 1: 1203
+2015-12-13 08:44:26 INFO  MondrianBenchmark:65 - Execution Time Query 2: 1202
+2015-12-13 08:44:28 INFO  MondrianBenchmark:65 - Execution Time Query 3: 1493
+2015-12-13 08:44:30 INFO  MondrianBenchmark:65 - Execution Time Query 4: 1985
+2015-12-13 08:44:35 INFO  MondrianBenchmark:65 - Execution Time Query 5: 5798
+2015-12-13 08:44:37 INFO  MondrianBenchmark:65 - Execution Time Query 6: 1928
+2015-12-13 08:44:39 INFO  MondrianBenchmark:65 - Execution Time Query 7: 1411
+2015-12-13 08:44:40 INFO  MondrianBenchmark:65 - Execution Time Query 8: 1412
+2015-12-13 08:44:42 INFO  MondrianBenchmark:65 - Execution Time Query 9: 1905
+2015-12-13 08:44:44 INFO  MondrianBenchmark:65 - Execution Time Query 10: 1738
+2015-12-13 08:44:47 INFO  MondrianBenchmark:65 - Execution Time Query 11: 2698
+2015-12-13 08:44:49 INFO  MondrianBenchmark:65 - Execution Time Query 12: 1998
+2015-12-13 08:44:51 INFO  MondrianBenchmark:65 - Execution Time Query 13: 2505
+
+
+
+2015-12-13 08:44:51 INFO  ETLProcess:109 - Running SQL Queries...
+2015-12-13 08:44:51 INFO  KylinConnection:19 - Kylin Connection to http://10.0.0.100:7070/kylin Established...
+
+2015-12-13 08:44:51 INFO  KylinBenchmark:49 -
+2015-12-13 08:44:51 INFO  KylinBenchmark:50 - Iteration: 1
+2015-12-13 08:44:51 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 175
+2015-12-13 08:44:52 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 177
+2015-12-13 08:44:52 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 160
+2015-12-13 08:44:53 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 1327
+2015-12-13 08:45:03 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 10009
+2015-12-13 08:45:04 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 828
+2015-12-13 08:45:07 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 3537
+2015-12-13 08:45:09 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 1423
+2015-12-13 08:45:10 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 902
+2015-12-13 08:45:11 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 895
+2015-12-13 08:45:16 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 5421
+2015-12-13 08:45:23 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 6446
+2015-12-13 08:45:24 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 1432
+2015-12-13 08:45:24 INFO  KylinBenchmark:49 -
+2015-12-13 08:45:24 INFO  KylinBenchmark:50 - Iteration: 2
+2015-12-13 08:45:24 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 162
+2015-12-13 08:45:24 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 174
+2015-12-13 08:45:25 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 176
+2015-12-13 08:45:26 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 1213
+2015-12-13 08:45:26 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 108
+2015-12-13 08:45:27 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 828
+2015-12-13 08:45:27 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 106
+2015-12-13 08:45:28 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 1195
+2015-12-13 08:45:29 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 889
+2015-12-13 08:45:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 886
+2015-12-13 08:45:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 106
+2015-12-13 08:45:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 107
+2015-12-13 08:45:31 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 1255
+2015-12-13 08:45:31 INFO  KylinBenchmark:49 -
+2015-12-13 08:45:31 INFO  KylinBenchmark:50 - Iteration: 3
+2015-12-13 08:45:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 153
+2015-12-13 08:45:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 166
+2015-12-13 08:45:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 156
+2015-12-13 08:45:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 1206
+2015-12-13 08:45:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 107
+2015-12-13 08:45:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 816
+2015-12-13 08:45:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 107
+2015-12-13 08:45:35 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 1170
+2015-12-13 08:45:36 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 902
+2015-12-13 08:45:37 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 967
+2015-12-13 08:45:37 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 106
+2015-12-13 08:45:37 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 106
+2015-12-13 08:45:39 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 1256
+2015-12-13 08:45:39 INFO  KylinBenchmark:49 -
+2015-12-13 08:45:39 INFO  KylinBenchmark:50 - Iteration: 4
+2015-12-13 08:45:39 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 155
+2015-12-13 08:45:39 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 165
+2015-12-13 08:45:39 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 154
+2015-12-13 08:45:40 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 1287
+2015-12-13 08:45:40 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 107
+2015-12-13 08:45:41 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 809
+2015-12-13 08:45:41 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 106
+2015-12-13 08:45:43 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 1160
+2015-12-13 08:45:43 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 896
+2015-12-13 08:45:44 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 885
+2015-12-13 08:45:44 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 106
+2015-12-13 08:45:45 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 107
+2015-12-13 08:45:46 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 1239
+2015-12-13 08:45:46 INFO  KylinBenchmark:49 -
+2015-12-13 08:45:46 INFO  KylinBenchmark:50 - Iteration: 5
+2015-12-13 08:45:46 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 153
+2015-12-13 08:45:46 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 169
+2015-12-13 08:45:46 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 157
+2015-12-13 08:45:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 1195
+2015-12-13 08:45:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 106
+2015-12-13 08:45:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 809
+2015-12-13 08:45:49 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 106
+2015-12-13 08:45:50 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 1158
+2015-12-13 08:45:51 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 886
+2015-12-13 08:45:51 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 903
+2015-12-13 08:45:52 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 106
+2015-12-13 08:45:52 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 105
+2015-12-13 08:45:53 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 1211
