@@ -1,0 +1,73 @@
+############################
+   Execute ETL Process...   
+############################
+2015-12-13 23:00:24 INFO  HiveConnection:21 - Hive Connection to 10.0.0.225:10000/default Established...
+
+2015-12-13 23:00:24 INFO  ETLProcess:103 - Running MDX Queries...
+2015-12-13 23:00:24 WARN  RolapUtil:407 - Mondrian: Warning: JDBC driver sun.jdbc.odbc.JdbcOdbcDriver not found
+2015-12-13 23:00:24 WARN  RolapUtil:407 - Mondrian: Warning: JDBC driver org.hsqldb.jdbcDriver not found
+2015-12-13 23:00:24 WARN  RolapUtil:407 - Mondrian: Warning: JDBC driver oracle.jdbc.OracleDriver not found
+2015-12-13 23:00:27 INFO  MondrianConnection:26 - Mondrian Connection to http://10.0.0.225:7070/kylin Established...
+
+2015-12-13 23:00:27 INFO  MondrianBenchmark:58 - 
+2015-12-13 23:00:27 INFO  MondrianBenchmark:59 - Iteration: 1
+2015-12-13 23:00:29 INFO  MondrianBenchmark:65 - Execution Time Query 1: 1725
+2015-12-13 23:00:30 INFO  MondrianBenchmark:65 - Execution Time Query 2: 681
+2015-12-13 23:00:30 INFO  MondrianBenchmark:65 - Execution Time Query 3: 497
+2015-12-13 23:00:56 INFO  MondrianBenchmark:65 - Execution Time Query 4: 25710
+2015-12-13 23:01:10 INFO  MondrianBenchmark:65 - Execution Time Query 5: 14025
+2015-12-13 23:01:22 INFO  MondrianBenchmark:65 - Execution Time Query 6: 12015
+2015-12-13 23:01:45 INFO  MondrianBenchmark:65 - Execution Time Query 7: 23197
+2015-12-13 23:02:03 INFO  MondrianBenchmark:65 - Execution Time Query 8: 17482
+2015-12-13 23:02:16 INFO  MondrianBenchmark:65 - Execution Time Query 9: 13176
+2015-12-13 23:02:29 INFO  MondrianBenchmark:65 - Execution Time Query 10: 12928
+2015-12-13 23:02:47 INFO  MondrianBenchmark:65 - Execution Time Query 11: 18358
+2015-12-13 23:03:29 INFO  MondrianBenchmark:65 - Execution Time Query 12: 41367
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 13: 78884
+2015-12-13 23:04:48 INFO  MondrianBenchmark:58 - 
+2015-12-13 23:04:48 INFO  MondrianBenchmark:59 - Iteration: 2
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 1: 13
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 2: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 3: 8
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 4: 14
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 5: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 6: 3
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 7: 8
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 8: 16
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 9: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 10: 3
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 11: 8
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 12: 10
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 13: 36
+2015-12-13 23:04:48 INFO  MondrianBenchmark:58 - 
+2015-12-13 23:04:48 INFO  MondrianBenchmark:59 - Iteration: 3
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 1: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 2: 6
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 3: 6
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 4: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 5: 5
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 6: 3
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 7: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 8: 18
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 9: 9
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 10: 4
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 11: 11
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 12: 12
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 13: 34
+2015-12-13 23:04:48 INFO  MondrianBenchmark:58 - 
+2015-12-13 23:04:48 INFO  MondrianBenchmark:59 - Iteration: 4
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 1: 6
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 2: 6
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 3: 5
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 4: 3
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 5: 4
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 6: 2
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 7: 5
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 8: 7
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 9: 5
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 10: 3
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 11: 5
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 12: 6
+2015-12-13 23:04:48 INFO  MondrianBenchmark:65 - Execution Time Query 13: 12
+Done...
+
