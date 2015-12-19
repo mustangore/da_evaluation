@@ -1,0 +1,59 @@
+2015-12-14 13:50:47 INFO  KylinBenchmark:50 - Iteration: 1
+2015-12-14 13:50:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 336
+2015-12-14 13:50:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 210
+2015-12-14 13:50:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 207
+2015-12-14 13:51:04 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 16173
+2015-12-14 13:51:19 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 14371
+2015-12-14 13:51:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 14736
+2015-12-14 13:51:53 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 19303
+2015-12-14 13:52:07 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 13605
+2015-12-14 13:52:46 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 39401
+2015-12-14 13:53:24 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 38253
+2015-12-14 13:54:02 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 37861
+2015-12-14 13:54:48 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 45778
+2015-12-14 13:55:28 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 39665
+2015-12-14 13:55:28 INFO  KylinBenchmark:49 -
+2015-12-14 13:55:28 INFO  KylinBenchmark:50 - Iteration: 2
+2015-12-14 13:55:28 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 192
+2015-12-14 13:55:28 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 223
+2015-12-14 13:55:28 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 223
+2015-12-14 13:55:29 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 245
+2015-12-14 13:55:29 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 179
+2015-12-14 13:55:29 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 141
+2015-12-14 13:55:29 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 249
+2015-12-14 13:55:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 497
+2015-12-14 13:55:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 139
+2015-12-14 13:55:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 160
+2015-12-14 13:55:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 145
+2015-12-14 13:55:30 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 177
+2015-12-14 13:55:31 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 512
+2015-12-14 13:55:31 INFO  KylinBenchmark:49 -
+2015-12-14 13:55:31 INFO  KylinBenchmark:50 - Iteration: 3
+2015-12-14 13:55:31 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 186
+2015-12-14 13:55:31 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 238
+2015-12-14 13:55:31 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 215
+2015-12-14 13:55:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 213
+2015-12-14 13:55:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 143
+2015-12-14 13:55:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 146
+2015-12-14 13:55:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 182
+2015-12-14 13:55:32 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 298
+2015-12-14 13:55:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 141
+2015-12-14 13:55:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 141
+2015-12-14 13:55:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 141
+2015-12-14 13:55:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 144
+2015-12-14 13:55:33 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 384
+2015-12-14 13:55:33 INFO  KylinBenchmark:49 -
+2015-12-14 13:55:33 INFO  KylinBenchmark:50 - Iteration: 4
+2015-12-14 13:55:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 1: 207
+2015-12-14 13:55:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 2: 233
+2015-12-14 13:55:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 3: 227
+2015-12-14 13:55:34 INFO  KylinBenchmark:56 - Execution Time SQL Query 4: 290
+2015-12-14 13:55:35 INFO  KylinBenchmark:56 - Execution Time SQL Query 5: 139
+2015-12-14 13:55:35 INFO  KylinBenchmark:56 - Execution Time SQL Query 6: 405
+2015-12-14 13:55:35 INFO  KylinBenchmark:56 - Execution Time SQL Query 7: 306
+2015-12-14 13:55:36 INFO  KylinBenchmark:56 - Execution Time SQL Query 8: 636
+2015-12-14 13:55:36 INFO  KylinBenchmark:56 - Execution Time SQL Query 9: 141
+2015-12-14 13:55:36 INFO  KylinBenchmark:56 - Execution Time SQL Query 10: 161
+2015-12-14 13:55:36 INFO  KylinBenchmark:56 - Execution Time SQL Query 11: 149
+2015-12-14 13:55:37 INFO  KylinBenchmark:56 - Execution Time SQL Query 12: 174
+2015-12-14 13:55:37 INFO  KylinBenchmark:56 - Execution Time SQL Query 13: 608

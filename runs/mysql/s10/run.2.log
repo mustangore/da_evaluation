@@ -1,0 +1,38 @@
+
+Version:                Openlink BIBM Test Driver 0.7.7
+Start date:             Fri Dec 18 10:36:17 EST 2015
+Scale factor:           1.0
+Explore Endpoint:       jdbc:mysql://localhost/ssb1?user=root
+Update Endpoint:        jdbc:mysql://localhost/ssb1?user=root
+Use case:               /home/ec2-user/development/evaluation/bibm/./../mysql/queries
+Query Streams of Throughput Test:1
+Seed:                   808080
+TPC-H Power:            46.0 qph*scale (geom)
+TPC-H Throughput:       0.0 qph*scale
+TPC-H Composite:        0.0
+Measurment Interval:    1450454486.7 seconds
+
+Duration of stream execution:
+                Query Start         Query End       Duration     RF1 Start           RF2 End           RF2 Start          RF2 End  
+Stream 1:	18/12/2015 10:36:17	18/12/2015 11:01:26	00:25:09	
+
+TPC Timing intervals (in seconds):
+
+Query		Q1	Q2	Q3	Q4	Q5	Q6	Q7	Q8	
+Stream 1:	11.7	8.5	8.4	156.3	154.4	153.2	158.2	134.7	
+Minimum: 	11.7	8.5	8.4	156.3	154.4	153.2	158.2	134.7	
+Maximum: 	11.7	8.5	8.4	156.3	154.4	153.2	158.2	134.7	
+Average: 	11.7	8.5	8.4	156.3	154.4	153.2	158.2	134.7	
+
+Query		Q9	Q10	Q11	Q12	Q13	Q14	Q15	Q16	
+Stream 1:	132.2	132.0	162.4	160.4	137.0	    	    	    	
+Minimum: 	132.2	132.0	162.4	160.4	137.0	    	    	    	
+Maximum: 	132.2	132.0	162.4	160.4	137.0	    	    	    	
+Average: 	132.2	132.0	162.4	160.4	137.0	    	    	    	
+
+Query		Q17	Q18	Q19	Q20	Q21	Q22	RF1	RF2	
+Stream 1:	    	    	    	    	    	    	    	    	
+Minimum: 	    	    	    	    	    	    	    	    	
+Maximum: 	    	    	    	    	    	    	    	    	
+Average: 	    	    	    	    	    	    	    	    	
+
