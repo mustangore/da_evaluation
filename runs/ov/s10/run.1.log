@@ -1,0 +1,38 @@
+
+Version:                Openlink BIBM Test Driver 0.7.7
+Start date:             Sat Dec 19 08:45:19 EST 2015
+Scale factor:           20.0
+Explore Endpoint:       http://localhost:8890/sparql
+Update Endpoint:        http://localhost:8890/sparql
+Use case:               /home/ec2-user/development/evaluation/bibm/./../openvirtuoso/queries
+Query Streams of Throughput Test:1
+Seed:                   808080
+TPC-H Power:            1304.0 qph*scale (geom)
+TPC-H Throughput:       0.0 qph*scale
+TPC-H Composite:        0.9
+Measurment Interval:    1450542577.9 seconds
+
+Duration of stream execution:
+                Query Start         Query End       Duration     RF1 Start           RF2 End           RF2 Start          RF2 End  
+Stream 1:	19/12/2015 08:45:20	19/12/2015 11:29:37	02:44:17	
+
+TPC Timing intervals (in seconds):
+
+Query		Q1	Q2	Q3	Q4	Q5	Q6	Q7	Q8	
+Stream 1:	582.2	2.0	0.5	162.6	25.5	4.5	7507.3	54.5	
+Minimum: 	582.2	2.0	0.5	162.6	25.5	4.5	7507.3	54.5	
+Maximum: 	582.2	2.0	0.5	162.6	25.5	4.5	7507.3	54.5	
+Average: 	582.2	2.0	0.5	162.6	25.5	4.5	7507.3	54.5	
+
+Query		Q9	Q10	Q11	Q12	Q13	Q14	Q15	Q16	
+Stream 1:	63.8	97.3	1337.3	    	19.8	    	    	    	
+Minimum: 	63.8	97.3	1337.3	    	19.8	    	    	    	
+Maximum: 	63.8	97.3	1337.3	    	19.8	    	    	    	
+Average: 	63.8	97.3	1337.3	    	19.8	    	    	    	
+
+Query		Q17	Q18	Q19	Q20	Q21	Q22	RF1	RF2	
+Stream 1:	    	    	    	    	    	    	    	    	
+Minimum: 	    	    	    	    	    	    	    	    	
+Maximum: 	    	    	    	    	    	    	    	    	
+Average: 	    	    	    	    	    	    	    	    	
+
